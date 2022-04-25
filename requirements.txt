@@ -1,0 +1,7 @@
+jupyter-book
+awswrangler
+pingouin
+researchpy
+matplotlib
+seaborn_qqplot
+numpy

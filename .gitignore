@@ -1,0 +1,9 @@
+/.idea
+/_build
+/__pycache__
+/.ipynb_checkpoints
+/_static
+/venv
+/data
+
+
