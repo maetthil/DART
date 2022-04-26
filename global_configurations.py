@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 
 DATASET_PATH = '../data/'
-DATASET_INFO = 'leads.yaml'
+DATASET_INFO = 'dataset.yaml'
 
 DATASET_INFO_PATH = os.path.join(DATASET_PATH, DATASET_INFO)
 
