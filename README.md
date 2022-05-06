@@ -1,5 +1,4 @@
 # Data Analysis Reporting Tool
 
-O DART (Data Analysis Reporting Tool) é uma ferramenta desenvolvida com o objetivo de ajudar a documentar a qualidade e 
-realizar a exploração de um conjunto de maneira interativa.
+O DART (Data Analysis Reporting Tool) é uma ferramenta desenvolvida com o objetivo de ajudar a realizar a exploração e documentar a qualidade de um conjunto de dados de maneira interativa.
 
