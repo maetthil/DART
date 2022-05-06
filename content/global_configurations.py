@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 import os
 
-import scipy
 import numpy as np
 import pandas as pd
 import operator
 import yaml
-from statsmodels.graphics.mosaicplot import mosaic
 import matplotlib.pyplot as plt
+from statsmodels.graphics.mosaicplot import mosaic
 
 
 DATASET_PATH = '../data/'
@@ -72,18 +71,28 @@ def infer_column_types(df, conf_dict):
         temp_dict[cat_var] = len(np.unique(df[cat_var].fillna('NaN')))
     sorted_x = sorted(temp_dict.items(), key=operator.itemgetter(1), reverse=True)
     conf_dict['CategoricalColumns'] = [x for (x, y) in sorted_x]
-
-    # Datetime Feature Extraction
-    preprocess_datetime(df, conf_dict)
-
+    
     numerical = conf_dict['NumericalColumns']
     categorical = conf_dict['CategoricalColumns']
-    categorical_dt = conf_dict['DTCategoricalColumns']
-    datetime = list(map(lambda x: list(x.keys())[0], conf_dict['DateTimeColumns']))
+    categorical_dt = []
+    datetime = []
+    identifiers = []
+    
+    # Datetime Feature Extraction
+    if 'DateTimeColumns' in conf_dict:
+        preprocess_datetime(df, conf_dict)
+        categorical_dt = conf_dict['DTCategoricalColumns']
+        datetime = list(map(lambda x: list(x.keys())[0], conf_dict['DateTimeColumns']))
+
+    # Identifiers
+    if 'IdentifierColumns' in conf_dict:
+        conf_dict['IdentifierColumns']
+
+    # Target
     target = conf_dict['Target']
 
     # df.drop(columns=conf_dict['ColumnsToExclude'], inplace=True)
-    return df, numerical, categorical, categorical_dt, datetime, target
+    return df, numerical, categorical, categorical_dt, datetime, identifiers, target,
 
 
 def mosaic_plot(data, x, y, ax):
@@ -134,4 +143,11 @@ def read_config_file(filename):
 def read_dataset(conf_dict, base=None):
     dataset_path = os.path.join(base, conf_dict['DataFilePath']) \
         if base else conf_dict['DataFilePath']
-    return pd.read_parquet(dataset_path)
+    ext = dataset_path.split('.')[-1]
+    if ext == 'csv':
+        read = pd.read_csv
+    elif ext == 'parquet':
+        read = pd.read_parquet
+    else:
+        raise NotImplementedError('Arquivo não suportado')
+    return read(dataset_path)

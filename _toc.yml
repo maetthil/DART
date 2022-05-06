@@ -6,9 +6,10 @@ root: introduction
 options: 
   numbered: True
 chapters:
-- file: general-summary/index
-- file: data-quality/index
-- file: target-variable/index
-- file: individual-variables/index
-- file: variables_rank/index
-- file: explanatory-response-variables/index
+- file: content/general-summary
+- file: content/data-quality
+- file: content/target-variable
+- file: content/individual-variables
+- file: content/variables-rank
+- file: content/explanatory-response-variables
+
