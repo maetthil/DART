@@ -10,9 +10,6 @@ from statsmodels.graphics.mosaicplot import mosaic
 
 
 DATASET_PATH = '../data/'
-DATASET_INFO = 'dataset.yaml'
-
-DATASET_INFO_PATH = os.path.join(DATASET_PATH, DATASET_INFO)
 
 
 def preprocess_datetime(df, conf_dict):
@@ -75,13 +72,13 @@ def infer_column_types(df, conf_dict):
         temp_dict[cat_var] = len(np.unique(df[cat_var].fillna('NaN')))
     sorted_x = sorted(temp_dict.items(), key=operator.itemgetter(1), reverse=True)
     conf_dict['CategoricalColumns'] = [x for (x, y) in sorted_x]
-    
+
     numerical = conf_dict['NumericalColumns']
     categorical = conf_dict['CategoricalColumns']
     categorical_dt = []
     datetime = []
     identifiers = []
-    
+
     # Datetime Feature Extraction
     if 'DateTimeColumns' in conf_dict:
         preprocess_datetime(df, conf_dict)
