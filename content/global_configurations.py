@@ -24,6 +24,9 @@ def preprocess_datetime(df, conf_dict):
 
     for dt_col in cols:
         col = list(dt_col.keys())[0]
+        old_na_symbol = pd.NaT
+        if any(df[col] == '0'):
+            old_na_symbol = 0
         df[col] = pd.to_datetime(df[col], format=list(dt_col.values())[0], errors='coerce')
         df[col] = df[col].fillna(pd.NaT)
 
@@ -35,6 +38,7 @@ def preprocess_datetime(df, conf_dict):
         df[f'{col}_hour'] = df[col].dt.hour.fillna(-1).astype('Int64')
         df[f'{col}_minute'] = df[col].dt.minute.fillna(-1).astype('Int64')
         df[f'{col}_second'] = df[col].dt.second.fillna(-1).astype('Int64')
+        df[col] = df[col].fillna(old_na_symbol)
 
         new_cols = [f'{col}_year', f'{col}_month', f'{col}_week_number',
                     f'{col}_day', f'{col}_day_week', f'{col}_hour',

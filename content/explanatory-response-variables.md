@@ -1,13 +1,16 @@
 # Relação entre variável explicavel e de resposta
 
-## Numérica
+## Numéricas
 ```{glue:} numerical_corr_matrix_plot
 ```
 
-## Categórica
+## Categóricas
 ```{glue:} categorical_mosaic_plot
 ```
 
-## Numérica e Categórica
-
+## Numéricas e Categóricas
+```{glue:figure} numcat_boxplot
+```
+```{glue:figure} numcat_scattermatrix
+```
 ## Análise de Componentes Principais

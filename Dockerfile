@@ -55,6 +55,6 @@ COPY logo.png dart
 COPY build.sh .
 
 RUN pip install --no-cache-dir -r dart/requirements.txt
+RUN chmod +x build.sh
 
 CMD ["./build.sh"]
-

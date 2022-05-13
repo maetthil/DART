@@ -1,0 +1,17 @@
+DataFilePath: titanic_dataset.csv
+HasHeader: true
+Separator: ','
+Target: Survived
+CategoricalColumns:
+  - PassengerId
+  - Pclass
+  - Name
+  - Sex
+  - Ticket
+  - Cabin
+  - Embarked
+NumericalColumns:
+  - SibSp
+  - Parch
+  - Age
+  - Fare

@@ -2,13 +2,16 @@
 
 ## Numéricas
 ```{glue:figure} numerical_stats
-:align: right
-
 ```
 ```{glue:figure} numerical_hist_plot
 ```
+```{glue:figure} numerical_box_plot
+```
+
 
 ## Categóricas
+```{glue:figure} categorical_stats
+```
 ```{glue:figure} categorical_unique_plot
 ```
 ```{glue:figure} categorical_top_categories_plot
@@ -16,6 +19,8 @@
 
 ## Data
 ### Ano
+```{glue:figure} datetime_stats
+```
 ```{glue:figure} categoricaldt_year_plot
 ```
 ### Mês

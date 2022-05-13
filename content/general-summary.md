@@ -5,14 +5,12 @@ O conjunto de dados possui {glue:text}`rows` linhas e {glue:text}`columns` colun
 
 ## Inferir tipos das variáveis
 ```{glue:figure} variable_types
-:align: "right"
 
 Tabela com o tipo das variáveis com base no arquivo de configuração.
 ```
 
 ## Nome e tipo de dado das colunas
 ```{glue:figure} column_types
-:align: "right"
 
 Tabela com o tipo de dado das colunas no conjunto de dados.
 ```
