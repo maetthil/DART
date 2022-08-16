@@ -69,7 +69,7 @@ def infer_column_types(df, conf_dict):
     # Sort Categorical Columns
     temp_dict = {}
     for cat_var in conf_dict['CategoricalColumns']:
-        temp_dict[cat_var] = len(np.unique(df[cat_var].fillna('NaN')))
+        temp_dict[cat_var] = len(np.unique(df[cat_var].fillna('NaN').astype('string'))
     sorted_x = sorted(temp_dict.items(), key=operator.itemgetter(1), reverse=True)
     conf_dict['CategoricalColumns'] = [x for (x, y) in sorted_x]
 
